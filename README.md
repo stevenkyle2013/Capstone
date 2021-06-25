@@ -20,9 +20,11 @@ The goal of this project is to see if incorporating sentiment data gathered on s
 To get a better sense of what kind of chatter ROKU was involved with wordclouds for Reddit and Twitter Data were created.
 
 Reddit
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/Reddit_Word_Cloud.png" width="500">
 
 Twitter
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/Twitter_Word_Cloud.png" width="500">
 
 As you can see, Reddit posts seem to highly revolve around earnings and Twitter posts seem to incorporate multiple stock tickers in the posts.
@@ -35,15 +37,19 @@ To get a better understanding of if there is an apparent correlation between sen
 ## Comparison of Model preformance
 
 LSTM Model using stock data
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/LSTM_Predictions.png" width="500">
 
 Close up on the test set
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/LSTM_Predictions_CloseUp.png" width="500">
 
 LSTM Model using stock and sentiment data
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/Multi_LSTM_Predictions.png" width="500">
 
 Close up on the test set
+
 <img src="https://github.com/stevenkyle2013/Capstone/blob/main/Pictures/Multi_LSTM_Predictions_CloseUp.png" width="500">
 
 
