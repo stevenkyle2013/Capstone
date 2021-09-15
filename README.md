@@ -2,7 +2,7 @@
 By: Steven Kyle
 
 ## Aim
-The goal of this project is to see if incorporating sentiment data gathered on social media would help predict future stock prices.
+The goal of this project is to test if incorporating sentiment data gathered on social media would help predict future stock prices.
 
 ## Data
 - The code to gather data can be found in the Gathering_Data notebook.
