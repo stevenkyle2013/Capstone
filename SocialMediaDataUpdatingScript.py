@@ -41,8 +41,8 @@ if __name__ == "__main__":
           
         # Downloading Roku data from yfinance
         stock_data = yf.Ticker('ROKU')
-        
-        
+        new_stock_data = stock_data.history(start = Latest_date, end = update_date)
+        print(new_stock_data)
         
         #stock_data.to_csv(path_or_buf='/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/yesyestest.csv',index=True)
         
