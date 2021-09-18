@@ -18,18 +18,32 @@ pd.set_option('display.max_columns', 100)
 
 # This is so twint will be able to work
 import nest_asyncio
-
 nest_asyncio.apply()
 
 
-#Update StockPrice csv
-#Update Twitter csv
-#Update Reddit csv
-
 if __name__ == "__main__":
     
-    print("Date to update data to: 'mm/dd/yyyy'")
+    print("Date to update data to: 'yyyy/mm/dd'")
     update_date = input()
-    print("Are you sure to update data to...{} 'Y' 'N'".format(update_date)
+    print("Are you sure to update data to...{} 'Y' 'N'".format(update_date))
     response = input()
-          
+    
+    if response == 'Y':
+         
+        #Fetching lastest date we have on file
+        S_df = pd.read_csv('StockData.csv', header=None)
+        Latest_date = S_df.iloc[-1,0]
+        
+        print('Updating from {} to {}'.format(Latest_date, update_date))
+        
+        # Update stock price csv
+        S_df 
+        
+# Need to open and write to stock price csv        dataframe_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata.csv', mode='a', header=False, index=False)
+
+        
+        # Update Twitter csv
+        
+        # Update Reddit csv
+        
+        print()
