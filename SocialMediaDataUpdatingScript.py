@@ -23,27 +23,37 @@ nest_asyncio.apply()
 
 if __name__ == "__main__":
     
-    print("Date to update data to: 'yyyy/mm/dd'")
+    #Fetching latest date we have data on
+    S_df = pd.read_csv('StockData_test.csv', header=None)
+    Latest_date = S_df.iloc[-1,0]
+    
+    print("Dataset has data up until {}.".format(Latest_date))
+    
+    print("Date to update data to: 'yyyy-mm-dd'")
     update_date = input()
     print("Are you sure to update data to...{} 'Y' 'N'".format(update_date))
     response = input()
     
     if response == 'Y':
-         
-        #Fetching lastest date we have on file
-        S_df = pd.read_csv('StockData.csv', header=None)
-        Latest_date = S_df.iloc[-1,0]
         
         print('Updating from {} to {}'.format(Latest_date, update_date))
         
-        # Update stock price csv
-        S_df 
+          
+        # Downloading Roku data from yfinance
+        stock_data = yf.Ticker('ROKU')
         
-# Need to open and write to stock price csv        dataframe_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata.csv', mode='a', header=False, index=False)
+        
+        
+        #stock_data.to_csv(path_or_buf='/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/yesyestest.csv',index=True)
+        
+        # updating stock data csv
+        #stock_data.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/StockData_test.csv', 
+        #                  mode='a', index=False)
+         
 
         
         # Update Twitter csv
         
         # Update Reddit csv
         
-        print()
+        #print()
