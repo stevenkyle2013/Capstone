@@ -24,7 +24,7 @@ nest_asyncio.apply()
 if __name__ == "__main__":
     
     #Fetching latest date we have data on
-    S_df = pd.read_csv('StockData_test.csv', header=None)
+    S_df = pd.read_csv('StockData_Test.csv', header=None)
     Latest_date = S_df.iloc[-1,0]
     
     print("Dataset has data up until {}.".format(Latest_date))
@@ -38,17 +38,18 @@ if __name__ == "__main__":
         
         print('Updating from {} to {}'.format(Latest_date, update_date))
         
-          
+        #Converting time to datetime to add one day and putting back to string 
+        Latest_date = dt.strptime(Latest_date, '%Y-%m-%d') #Not sure if strptime is the right one
+        print(type(Latest_date))
+        print(Latest_date)
+        
         # Downloading Roku data from yfinance
-        stock_data = yf.Ticker('ROKU')
-        new_stock_data = stock_data.history(start = Latest_date, end = update_date)
-        print(new_stock_data)
-        
-        #stock_data.to_csv(path_or_buf='/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/yesyestest.csv',index=True)
-        
+        #stock_data = yf.Ticker('ROKU')
+        #new_stock_data = stock_data.history(start = Latest_date, end = update_date)
+                
         # updating stock data csv
-        #stock_data.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/StockData_test.csv', 
-        #                  mode='a', index=False)
+        #new_stock_data.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/StockData_Test.csv', 
+        #                      mode='a', index=True, header=False)
          
 
         
