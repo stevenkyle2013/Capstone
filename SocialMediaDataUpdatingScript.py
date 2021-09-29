@@ -54,20 +54,20 @@ if __name__ == "__main__":
         
         
         
-        # Making twitter days to itter through
-        twitter_stock_days = new_stock_data.index.strftime('%Y-%m-%d')
+        # Making days to itter through
+        New_days = new_stock_data.index.strftime('%Y-%m-%d')
         
         # Update Twitter csv        
-        for i in range(len(twitter_stock_days)-1):   
+        for i in range(len(New_days)-1):   
             
             # Configure
             c = twint.Config()
             c.Search = '$ROKU'
     
             ### Change since and until
-            c.Since = twitter_stock_days[i]
+            c.Since = New_days[i]
             next_day = i+1
-            c.Until = twitter_stock_days[next_day]
+            c.Until = New_days[next_day]
         
             c.Lang = 'en'
             c.Limit = 100  #Has to be increments of 20
@@ -91,23 +91,23 @@ if __name__ == "__main__":
                                'quote_url','near','geo','source','user_rt_id','user_rt','retweet_id','reply_to',
                                'retweet_date','translate','trans_src','trans_dest'], inplace=True)
     
-            print(Tweets_df.columns)
-            #Tweets_df.sort_values(by='nlikes', axis=0, ascending=False, inplace=True)
+                Tweets_df.sort_values(by='nlikes', axis=0, ascending=False, inplace=True)
     
-            # Take the top 5 in dataframe to write
-            df_to_write = Tweets_df[0:5]
+                # Take the top 5 in dataframe to write
+                df_to_write = Tweets_df[0:5]
     
-            # Writting to a csv
-            df_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/TwitterData_Test.csv', 
-                               mode='a', header=False, index=False)
+                # Writting to a csv
+                df_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/TwitterData_Test.csv', 
+                                   mode='a', header=False, index=False)
     
             time.sleep(3)
         
         
         # Update Reddit csv
+        Reddit_subreddits = ['stocks', 'investing', 'stockmarket', 'economy', 'wallstreetbets', 'options', 'Daytrading']
         
         # Looping throught the dates
-        for i in range(len(stock_days_itter) - 1):
+        for i in range(len(New_days) - 1):
     
             r = praw.Reddit(client_id=client_id,
                             client_secret=client_secret,
@@ -116,9 +116,9 @@ if __name__ == "__main__":
             api = PushshiftAPI(r)
     
             # Setting parameters and doing a search
-            start_epoch = stock_days_itter[i]
+            start_epoch = New_days[i]
             next_day = i+1
-            end_epoch = stock_days_itter[next_day]
+            end_epoch = New_days[next_day]
 
             api_request_generator = api.search_submissions(subreddit=Reddit_subreddits,
                                                            after = start_epoch, before=end_epoch,
@@ -149,7 +149,7 @@ if __name__ == "__main__":
                 Created.append(submissions.created)
                 Created_utc.append(submissions.created_utc)
                 Self_text.append(submissions.selftext)
-                Date.append(stock_days[i])
+                Date.append(New_days[i])
     
             temp_df = pd.DataFrame({'ID':ID,
                             'Num_Comments':Num_Comments,
@@ -170,7 +170,7 @@ if __name__ == "__main__":
             dataframe_to_write = Reddit_df[0:5]
     
             # Writing dataframe to a csv
-            datarame_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata_Test.csv', mode='a',
+            dataframe_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata_Test.csv', mode='a',
                                      header=False, index=False)
     
             time.sleep(3)
