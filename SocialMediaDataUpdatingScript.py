@@ -13,9 +13,6 @@ from Config import *
 import time
 
 
-pd.set_option('display.max_rows', 100)
-pd.set_option('display.max_columns', 100)
-
 
 # This is so twint will be able to work
 import nest_asyncio
