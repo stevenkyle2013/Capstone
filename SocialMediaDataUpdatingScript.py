@@ -22,7 +22,7 @@ nest_asyncio.apply()
 if __name__ == "__main__":
     
     #Fetching latest date we have data on
-    S_df = pd.read_csv('StockData_Test.csv', header=None)
+    S_df = pd.read_csv('StockData.csv', header=None)
     Latest_date = S_df.iloc[-1,0]
     
     print("Dataset has data up until {}.".format(Latest_date))
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         new_stock_data = stock_data.history(start = Latest_date, end = update_date)
                 
         # updating stock data csv
-        new_stock_data.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/StockData_Test.csv', 
+        new_stock_data.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/StockData.csv', 
                               mode='a', index=True, header=False, line_terminator=None)
         
         
@@ -94,7 +94,7 @@ if __name__ == "__main__":
                 df_to_write = Tweets_df[0:5]
     
                 # Writting to a csv
-                df_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/TwitterData_Test.csv', 
+                df_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/TwitterData.csv', 
                                    mode='a', header=False, index=False)
     
             time.sleep(3)
@@ -167,7 +167,7 @@ if __name__ == "__main__":
             dataframe_to_write = Reddit_df[0:5]
     
             # Writing dataframe to a csv
-            dataframe_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata_Test.csv', mode='a',
+            dataframe_to_write.to_csv('/Users/stevenkyle/Documents/Flatiron/Capstone/Capstone/redditdata.csv', mode='a',
                                      header=False, index=False)
     
             time.sleep(3)
